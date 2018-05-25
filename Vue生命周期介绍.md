@@ -1,7 +1,3 @@
-# Vue生命周期介绍
-作者：熊猫
-时间: 2018年5月23日
-
 用Vue开发已经有一些日子，但是关于Vue生命周期的问题一直没有形成一个比较明确而深刻的概念，使用的时候总是无法得心应手，于是希望写一篇文章来介绍Vue生命周期的相关知识，也算是巩固和加深自己对于Vue的理解。
 
 ## 写在介绍之前的内容
@@ -61,8 +57,11 @@ this.\$options.methods.functionName()可以直接调用方法;
 
 ## nextTick()
 这里加多一个nextTick()方法的介绍。
-一般有两种用法:this.$nextTick, Vue.nextTick。这里的区别只是用this绑定到当前组件实例或者用Vue绑定全局实例的方法。
+
+一般有两种用法:this.$nextTick,Vue.nextTick。这里的区别只是用this绑定到当前组件实例或者用Vue绑定全局实例的方法。
+
 理解nextTick你需要理解Vue中的DOM更新是**异步**而非同步的。当你更改某一个值时，这个改变不会即时在DOM上渲染，而是生成一个DOM更新队列，然后定一个定时器，之后渲染。一般来说，由于更新太快并不会看出有多少区别。然而，如果你在代码中需要在更改值之后操作更新后的DOM时，就没法立即操作了。因为之前更改操作并没有渲染(还在队列中)，如果你需要操作更新后的DOM，则需要使用这个方法。
+
 (关于nextTick的详细分析，可以参考这篇文章[从Vue.js源码看nextTick机制](https://zhuanlan.zhihu.com/p/30451651))
 ```
 export default {
@@ -175,5 +174,6 @@ nextTick也是一个异步操作，所以你的其他在nextTick之后的同步�
 <https://segmentfault.com/q/1010000012331476>
 <https://blog.csdn.net/zhalcie2011/article/details/72265881>
 <https://stackoverflow.com/questions/47634258/what-is-nexttick-or-what-does-it-do-in-vuejs>
+
 <https://stackoverflow.com/questions/44983349/what-is-the-difference-between-updated-hook-and-watchers-in-vuejs>
 <https://zhuanlan.zhihu.com/p/30451651>
