@@ -8,8 +8,10 @@
 ##  beforeCreate()
 此时为实例创建之前。使用这个钩子方法时,this.\$el还不存在。各种组件属性(this.\$data,methods里面的函数，computed数据等等)还没有计算出来。所以在这个钩子方法里调用数据或方法只会返回undefined。
 如果是单文件组件的话，Document.title是可以访问到的。
+
 **注意：**
 如果你真的有这种需求，需要在实例未生成之前就调用相关属性或方法，那么可以使用this.\$options的属性来调用，但this.\$options是只读属性，是无法修改的。所以期望在这个钩子函数中用这个属性更改属性和方法或者组件的是不可能的。（方法是可以调用的，当然如果内部有相关引用，那么肯定会报错，因为此时还没有生成相关引用）
+
 this.\$options.data()没有绑定上下文，要用this.\$options.data.apply(this)。这个方法只针对当前组件的data，子组件里的data就不需要绑定this了。
 this.\$options.methods.functionName()可以直接调用方法;
 
@@ -95,6 +97,7 @@ nextTick也是一个异步操作，所以你的其他在nextTick之后的同步�
 
 ## beforeUpdate()
 这里是发生在数据更新时，而DOM还没有渲染的时候。
+
 **注意:**
 这里如果进行值的操作(例如this.message = ['a'])，会触发无限循环。因为你的值在更新的同时，又会触发钩子函数（如果是不可变值，例如字符串数字等，不会重复触发，但还是不建议进行值操作）
 
@@ -104,7 +107,7 @@ nextTick也是一个异步操作，所以你的其他在nextTick之后的同步�
 
 - 不可使用的属性(或者说没有值的属性): 无
 
-- 使用场景: 很少，能想到的是对数据的提前过滤
+- 使用场景: 很少。
 
 ## updated()
 这里是发生在数据更新且DOM也重新渲染后的函数。
@@ -117,7 +120,7 @@ nextTick也是一个异步操作，所以你的其他在nextTick之后的同步�
 
 - 不可使用的属性(或者说没有值的属性): 无
 
-- 使用场景: 数据更新后的操作DOM
+- 使用场景: 数据更新后的DOM操作
 
 ## beforeDestory()
 组件销毁前调用。此时整个实例仍然可用
@@ -169,11 +172,17 @@ nextTick也是一个异步操作，所以你的其他在nextTick之后的同步�
 
 参考文章：
 <http://www.cnblogs.com/zhuzhenwei918/p/6903158.html>
+
 <https://segmentfault.com/a/1190000009677699>
+
 <https://github.com/vuejs/vue/issues/702>
+
 <https://segmentfault.com/q/1010000012331476>
+
 <https://blog.csdn.net/zhalcie2011/article/details/72265881>
+
 <https://stackoverflow.com/questions/47634258/what-is-nexttick-or-what-does-it-do-in-vuejs>
 
 <https://stackoverflow.com/questions/44983349/what-is-the-difference-between-updated-hook-and-watchers-in-vuejs>
+
 <https://zhuanlan.zhihu.com/p/30451651>
