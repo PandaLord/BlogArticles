@@ -168,11 +168,12 @@ nextTick也是一个异步操作，所以你的其他在nextTick之后的同步�
 另外此篇文章没有像其他的文章带上图片，如果觉得难以理解，可以查看下方的参考链接，有比较详细的图文代码解释。
 
 
-参考文章：http://www.cnblogs.com/zhuzhenwei918/p/6903158.html
-         https://segmentfault.com/a/1190000009677699
-         https://github.com/vuejs/vue/issues/702
-         https://segmentfault.com/q/1010000012331476
-         https://blog.csdn.net/zhalcie2011/article/details/72265881
-         https://stackoverflow.com/questions/47634258/what-is-nexttick-or-what-does-it-do-in-vuejs
-         https://stackoverflow.com/questions/44983349/what-is-the-difference-between-updated-hook-and-watchers-in-vuejs
-         https://zhuanlan.zhihu.com/p/30451651
+参考文章：
+<http://www.cnblogs.com/zhuzhenwei918/p/6903158.html>
+<https://segmentfault.com/a/1190000009677699>
+<https://github.com/vuejs/vue/issues/702>
+<https://segmentfault.com/q/1010000012331476>
+<https://blog.csdn.net/zhalcie2011/article/details/72265881>
+<https://stackoverflow.com/questions/47634258/what-is-nexttick-or-what-does-it-do-in-vuejs>
+<https://stackoverflow.com/questions/44983349/what-is-the-difference-between-updated-hook-and-watchers-in-vuejs>
+<https://zhuanlan.zhihu.com/p/30451651>
